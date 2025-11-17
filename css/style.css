@@ -8,30 +8,47 @@ h2 {
     margin: 0;
 }
 
-header {
-    display: grid;
-    place-items: center;
+ul {
+    list-style: none;
 }
 
-.formation {
-    border: solid black;
-    border-radius: 20px;
-    max-width: 2000px;
-}
 
 /*mobile first*/
 @media (max-width: 767px) {
+
+    header {
+        display: grid;
+        place-items: center;
+    }
+
     .logo {
         display: grid;
         width: 200px;
         height: 200px;
     }
 
+    .croix {
+        display: none;
+    }
+
+    .formation {
+        width: 90vw;
+    }
+
+    .formation::before {
+        content: "";
+        width: 100vw;
+        height: 100%;
+        border: solid black;
+        border-radius: 20px;
+        z-index: -1;
+    }
+
     .nom {
         display: grid;
-        grid-template-columns: repeat(3, 1fr);
         align-items: center;
-        gap: 2px;
+        gap: 10px;
+        grid-template-columns: repeat(3, 1fr);
     }
 
     .filtre {
@@ -40,13 +57,67 @@ header {
         color: white;
         border-radius: 20px;
     }
+
+    .dessous {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+    }
+
+    .text {
+        flex: 1;
+    }
+
+    .dessous img {
+        flex: 1;
+    }
+
+    .photofiltrer {
+        z-index: 1;
+        position: absolute;
+        bottom: 10px;
+        left: 0;
+    }
+
+    .graph {}
+
+    .photo-accueil {
+        position: absolute;
+        bottom: -350px;
+        left: 0;
+        background-color: white;
+        width: 100px;
+        height: 100px;
+    }
 }
 
 /*ordinateur */
-@media screen {
+@media (min-width: 768px) {
+    header {
+        display: grid;
+    }
 
+    .logo {
+        width: 250px;
+        height: 250px;
+        justify-content: center;
+    }
 
+    .nom {
+        grid-template-columns: repeat(4, 1fr);
+    }
 
-    
+    .croix {
+        visibility: visible;
+        background-color: black;
+        border: 48px;
+        color: white;
+    }
 
+    .filtre {
+        border: 1.5rem solid;
+        background: black;
+        color: white;
+        border-radius: 40px;
+    }
 }
