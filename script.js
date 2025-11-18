@@ -1,6 +1,7 @@
- // Afficher le menu hamburger uniquement en desktop
+ document.addEventListener('DOMContentLoaded', () => {
+    // Afficher le menu hamburger uniquement en desktop
     const menuIcon = document.querySelector('.menu-icon');
-    
+
     function updateMenuVisibility() {
       if (window.innerWidth >= 1024) {
         menuIcon.style.display = 'flex';
@@ -12,9 +13,18 @@
     updateMenuVisibility();
     window.addEventListener('resize', updateMenuVisibility);
 
-    // Menu mobile toggle
+    // Menu desktop toggle
+    const dropdownMenu = document.querySelector('.dropdown-menu');
     menuIcon.addEventListener('click', () => {
-      alert('Menu à implémenter');
+      dropdownMenu.classList.toggle('active');
+    });
+
+    // Fermer le menu en cliquant sur un item
+    const dropdownItems = document.querySelectorAll('.dropdown-item');
+    dropdownItems.forEach(item => {
+      item.addEventListener('click', () => {
+        dropdownMenu.classList.remove('active');
+      });
     });
 
     // Bouton filtre flottant
@@ -22,3 +32,4 @@
     floatingFilter.addEventListener('click', () => {
       alert('Panneau de filtres à implémenter');
     });
+});
