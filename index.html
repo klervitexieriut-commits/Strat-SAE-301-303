@@ -1,45 +1,106 @@
 <!DOCTYPE html>
 <html lang="fr">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Master-class</title>
-    <meta name="description" content="Découvrez une présentation personnelle exclusive">
-    <link rel="stylesheet" href="./css/style.css" type="text/css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Formation X - Trouvez votre Master</title>
+<meta name="description" content="Trouver votre master facilement avec Master-Class">
+<link rel="stylesheet" href="./css/style.css">
+<script src="./script.js"></script>
 </head>
-
 <body>
-    <header>
-        <img src="./image/logo.svg" class="logo">
-    </header>
-    <main>
-        <section class="formation">
-            <div class="nom">
-                <h2>Formation X</h2>
-                <p class="filtre">Filtre n°1</p>
-                <p class="filtre">Filtre n°2</p>
-                <p class="filtre">Filtre n°3</p>
-                <p class="croix">x</p>
-            </div>
-            <div class="dessous">
-                <p class="text">Lorem ipsum dolor sit amet consectetur. Laoreet viverra tempor urna vitae est. Ipsum
-                    ullamcorper
-                    morbi
-                    lacus sit sed. Facilisis turpis amet sed aliquam laoreet dolor ultrices erat ante. Facilisis turpis
-                    amet
-                    sed aliquam amet sed Ipsum ullamcorper morbi lacus sit sed.
-                    Lorem ipsum dolor sit amet consectetur. Laoreet viverra tempor urna vitae est. Fermentum ipsum
-                    ullamcorper morbi lacus sit sed. Facilisis turpis amet sed aliquam laoreet dolor ultrices erat ante.
-                </p>
-                <img src="./image/image.svg">
-            </div>
-            <img src="./image/filrer.svg" class="photofiltrer">
-            <img src="./image/graphique1.svg" class="graph">
-            <img src="./image/graphique2.svg" class="graph">
-        </section>
-    </main>
-    <footer><img src="./image/accueil.svg" class="photo-accueil"></footer>
-</body>
+  <!-- HEADER FIXE -->
+  <header class="header">
+    <!-- Menu apparaît uniquement en desktop -->
+    <div class="menu-icon" style="display: none;">
+      <svg viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
+        <line x1="3" y1="12" x2="21" y2="12"></line>
+        <line x1="3" y1="6" x2="21" y2="6"></line>
+        <line x1="3" y1="18" x2="21" y2="18"></line>
+      </svg>
+    </div>
+    
+    <div class="logo">
+     <img src="./images/svg/logo-master-class.svg" alt="Le Logo Master Class">
+    </div>
+  </header>
 
+  <main>
+    <!-- CARD UNIQUE CONTENANT TOUT -->
+    <div class="main-card">
+      <!-- Formation X en mobile -->
+      <div class="formation-header">
+        <h1 class="formation-title">Formation X</h1>
+        <div class="filters-container">
+          <button class="filter-btn">Filtre n°1</button>
+          <button class="filter-btn">Filtre n°2</button>
+        </div>
+      </div>
+
+      <!-- Wrapper pour desktop -->
+      <div class="formation-wrapper">
+        <!-- Texte + Image côte à côte -->
+        <div class="formation-content">
+          <p class="formation-description">
+            Lorem ipsum dolor sit amet consectetur. Laorest inversea tempo marbi facas sit sed. Factiisis turpis amet 
+            id facilisis amet dolar cursus at sed facilisis. Lorem ipsum dolor sit amet consectetur laoresst inversea 
+            tempo marbi facas sit sed anet id facilisis amet dolar cursum ullamcorper morbi lacus sit sed.
+            Lorem ipsum dolor sit amet consectetur. Laorest inversea tempo marbi facas sit sed anet id facilisis.
+          </p>
+          
+          <!-- Image toujours à droite -->
+          <div class="formation-image"></div>
+        </div>
+      </div>
+
+      <!-- Graphiques dans la même card -->
+      <div class="graphics-container">
+        <div class="graphic-item">
+          <h2 class="graphic-title">Graphique n°1</h2>
+        </div>
+        
+        <div class="graphic-item">
+          <h2 class="graphic-title">Graphique n°2</h2>
+        </div>
+      </div>
+    </div>
+
+    <!-- BOUTON FILTRE FLOTTANT -->
+    <button class="floating-filter" aria-label="Ouvrir les filtres">
+      <svg viewBox="0 0 24 24">
+        <polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3"></polygon>
+      </svg>
+    </button>
+  </main>
+
+  <!-- BOTTOM NAVIGATION FIXE (MOBILE UNIQUEMENT) -->
+  <nav class="bottom-nav">
+    <a href="#" class="nav-item active">
+      <svg viewBox="0 0 24 24">
+        <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+        <polyline points="9 22 9 12 15 12 15 22"></polyline>
+      </svg>
+      <span>Accueil</span>
+    </a>
+    
+    <a href="#" class="nav-item">
+      <svg viewBox="0 0 24 24">
+        <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+        <circle cx="12" cy="7" r="4"></circle>
+      </svg>
+      <span>Profile</span>
+    </a>
+    
+    <a href="#" class="nav-item">
+      <svg viewBox="0 0 24 24">
+        <circle cx="12" cy="12" r="10"></circle>
+        <line x1="12" y1="16" x2="12" y2="12"></line>
+        <line x1="12" y1="8" x2="12.01" y2="8"></line>
+      </svg>
+      <span>Infos</span>
+    </a>
+  </nav>
+
+
+</body>
 </html>
