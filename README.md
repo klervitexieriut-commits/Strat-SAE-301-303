@@ -10,6 +10,8 @@ L’idée est d’également prendre en compte les enjeux d'accessibilité pour 
 
 ## 2. Présentation technique
 
-
+(role de l'app : languages utilisés, quels visu, de où on les prends, 
 
 ## 3. Guide de déploiement 
+
+(quels méthodes on utilisent : méthode "get"?, comment lancer l'app via live server par exemple)
