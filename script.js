@@ -33,20 +33,20 @@ document.addEventListener('DOMContentLoaded', () => {
       alert('Panneau de filtres à implémenter');
     });
 
-    // Initialisation du graphique ECharts
-    var chartDom = document.getElementById('chart1');
-    var myChart = echarts.init(chartDom);
-    var option;
+    // Initialisation du graphique n°1 (Nightingale)
+    var chartDom1 = document.getElementById('chart1');
+    var myChart1 = echarts.init(chartDom1);
+    var option1;
     
     // Calcul du radius adaptatif selon la taille de l'écran
     var isMobile = window.innerWidth < 1024;
-    var radiusInner = isMobile ? 30 : 40;
-    var radiusOuter = isMobile ? 120 : 180;
+    var radiusInner = isMobile ? 25 : 30;
+    var radiusOuter = isMobile ? 100 : 140;
     
-    option = {
+    option1 = {
       legend: {
         top: 'bottom',
-        padding: [10, 0, 0, 0],
+        padding: [15, 0, 0, 0],
         itemGap: 15,
         textStyle: {
           fontSize: 12
@@ -68,7 +68,7 @@ document.addEventListener('DOMContentLoaded', () => {
           name: 'Nightingale Chart',
           type: 'pie',
           radius: [radiusInner, radiusOuter],
-          center: ['50%', '45%'],
+          center: ['50%', '42%'],
           roseType: 'area',
           itemStyle: {
             borderRadius: 8
@@ -78,8 +78,8 @@ document.addEventListener('DOMContentLoaded', () => {
             padding: 5
           },
           labelLine: {
-            length: 15,
-            length2: 10
+            length: 12,
+            length2: 8
           },
           data: [
             { value: 40, name: 'rose 1' },
@@ -94,20 +94,67 @@ document.addEventListener('DOMContentLoaded', () => {
         }
       ]
     };
-    option && myChart.setOption(option);
+    option1 && myChart1.setOption(option1);
 
-    // Redimensionner le graphique lors du resize de la fenêtre
+    // Initialisation du graphique n°2 (Bar Chart)
+    var chartDom2 = document.getElementById('chart2');
+    var myChart2 = echarts.init(chartDom2);
+    var option2;
+    
+    option2 = {
+      grid: {
+        left: '15%',
+        right: '10%',
+        top: '15%',
+        bottom: '15%',
+        containLabel: true
+      },
+      xAxis: {
+        type: 'category',
+        data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
+        axisLabel: {
+          fontSize: 12,
+          interval: 0,
+          rotate: 0
+        }
+      },
+      yAxis: {
+        type: 'value',
+        axisLabel: {
+          fontSize: 12
+        }
+      },
+      series: [
+        {
+          data: [120, 200, 150, 80, 70, 110, 130],
+          type: 'bar',
+          itemStyle: {
+            color: '#0D79F2'
+          },
+          label: {
+            show: true,
+            position: 'top',
+            fontSize: 11
+          }
+        }
+      ]
+    };
+    option2 && myChart2.setOption(option2);
+
+    // Redimensionner les graphiques lors du resize de la fenêtre
     window.addEventListener('resize', () => {
-      myChart.resize();
+      myChart1.resize();
+      myChart2.resize();
       
-      // Recalculer le radius selon la nouvelle taille
+      // Recalculer le radius du graphique 1 selon la nouvelle taille
       var isMobile = window.innerWidth < 1024;
-      var radiusInner = isMobile ? 30 : 40;
-      var radiusOuter = isMobile ? 120 : 180;
+      var radiusInner = isMobile ? 25 : 30;
+      var radiusOuter = isMobile ? 100 : 140;
       
-      myChart.setOption({
+      myChart1.setOption({
         series: [{
-          radius: [radiusInner, radiusOuter]
+          radius: [radiusInner, radiusOuter],
+          center: ['50%', '42%']
         }]
       });
     });

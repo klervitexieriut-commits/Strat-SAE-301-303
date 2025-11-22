@@ -222,56 +222,15 @@ main {
   gap: 1.5rem;
 }
 
-/* Nouveau conteneur pour le graphique ECharts */
+/* Conteneur pour les graphiques ECharts */
 .chart-container {
   background-color: #ffffff;
   border: 2px solid #0D79F2;
   border-radius: 8px;
-  padding: 1.5rem;
-  min-height: 500px;
-  height: 500px;
+  padding: 2rem;
+  min-height: 450px;
+  height: 450px;
   width: 100%;
-}
-
-.graphic-item {
-  background-color: #e8e8e8;
-  border: 2px solid #ccc;
-  border-radius: 8px;
-  padding: 2rem 1rem;
-  min-height: 180px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: relative;
-  overflow: hidden;
-}
-
-.graphic-title {
-  font-size: 1.3rem;
-  font-weight: 500;
-  color: #2c2c2c;
-  z-index: 2;
-  text-align: center;
-}
-
-/* Croix diagonale dans graphiques */
-.graphic-item::before,
-.graphic-item::after {
-  content: '';
-  position: absolute;
-  width: 141%;
-  height: 2px;
-  background-color: #aaa;
-  top: 50%;
-  left: 50%;
-}
-
-.graphic-item::before {
-  transform: translate(-50%, -50%) rotate(45deg);
-}
-
-.graphic-item::after {
-  transform: translate(-50%, -50%) rotate(-45deg);
 }
 
 /* ==========================================
@@ -441,13 +400,9 @@ main {
   }
 
   .chart-container {
-    min-height: 600px;
-    height: 600px;
-    padding: 2rem;
-  }
-
-  .graphic-item {
-    min-height: 250px;
+    min-height: 500px;
+    height: 500px;
+    padding: 2.5rem;
   }
 
   /* Bouton filtre */
