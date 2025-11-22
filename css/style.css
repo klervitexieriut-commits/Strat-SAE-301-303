@@ -222,6 +222,17 @@ main {
   gap: 1.5rem;
 }
 
+/* Nouveau conteneur pour le graphique ECharts */
+.chart-container {
+  background-color: #ffffff;
+  border: 2px solid #0D79F2;
+  border-radius: 8px;
+  padding: 1.5rem;
+  min-height: 500px;
+  height: 500px;
+  width: 100%;
+}
+
 .graphic-item {
   background-color: #e8e8e8;
   border: 2px solid #ccc;
@@ -427,6 +438,12 @@ main {
   /* Graphiques en full-width */
   .graphics-container {
     gap: 2rem;
+  }
+
+  .chart-container {
+    min-height: 600px;
+    height: 600px;
+    padding: 2rem;
   }
 
   .graphic-item {
