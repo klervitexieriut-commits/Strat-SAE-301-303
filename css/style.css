@@ -233,6 +233,36 @@ main {
   width: 100%;
 }
 
+/* Conteneur spécifique pour la carte Leaflet */
+.map-container {
+  padding: 0;
+  overflow: hidden;
+  position: relative;
+}
+
+.map-container #carte-france {
+  width: 100%;
+  height: 100%;
+  border-radius: 6px;
+}
+
+/* Style des popups Leaflet pour matcher le design */
+.leaflet-popup-content-wrapper {
+  background-color: #0D79F2;
+  color: white;
+  border-radius: 8px;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+}
+
+.leaflet-popup-content {
+  margin: 10px 15px;
+  font-size: 13px;
+}
+
+.leaflet-popup-tip {
+  background-color: #0D79F2;
+}
+
 /* ==========================================
        BOUTON FILTRE FLOTTANT
        ========================================== */
@@ -403,6 +433,10 @@ main {
     min-height: 500px;
     height: 500px;
     padding: 2.5rem;
+  }
+
+  .map-container {
+    padding: 0;
   }
 
   /* Bouton filtre */

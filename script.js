@@ -141,10 +141,68 @@ document.addEventListener('DOMContentLoaded', () => {
     };
     option2 && myChart2.setOption(option2);
 
+    // Initialisation de la carte Leaflet (carte n°3)
+    var map = L.map('carte-france', {
+      center: [46.603354, 1.888334], // Centre de la France
+      zoom: 6,
+      scrollWheelZoom: true,
+      zoomControl: true
+    });
+
+    // Ajouter la couche de tuiles OpenStreetMap
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+      maxZoom: 18
+    }).addTo(map);
+
+    // Positions aléatoires d'universités en France (exemples provisoires)
+    var universities = [
+      { lat: 48.8566, lng: 2.3522, name: "Université Paris (exemple)" },
+      { lat: 45.7640, lng: 4.8357, name: "Université Lyon (exemple)" },
+      { lat: 43.2965, lng: 5.3698, name: "Université Marseille (exemple)" },
+      { lat: 47.2184, lng: -1.5536, name: "Université Nantes (exemple)" },
+      { lat: 43.6047, lng: 1.4442, name: "Université Toulouse (exemple)" },
+      { lat: 48.5734, lng: 7.7521, name: "Université Strasbourg (exemple)" },
+      { lat: 44.8378, lng: -0.5792, name: "Université Bordeaux (exemple)" },
+      { lat: 50.6292, lng: 3.0573, name: "Université Lille (exemple)" },
+      { lat: 49.2583, lng: 4.0317, name: "Université Reims (exemple)" },
+      { lat: 47.3900, lng: 0.6889, name: "Université Tours (exemple)" }
+    ];
+
+    // Icône personnalisée pour les marqueurs (couleur bleue pour matcher le design)
+    var blueIcon = L.icon({
+      iconUrl: 'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-blue.png',
+      shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png',
+      iconSize: [25, 41],
+      iconAnchor: [12, 41],
+      popupAnchor: [1, -34],
+      shadowSize: [41, 41]
+    });
+
+    // Ajouter les marqueurs sur la carte
+    universities.forEach(function(uni) {
+      var marker = L.marker([uni.lat, uni.lng], { icon: blueIcon }).addTo(map);
+      marker.bindPopup('<b>' + uni.name + '</b>');
+      
+      // Afficher la popup au survol
+      marker.on('mouseover', function() {
+        this.openPopup();
+      });
+      marker.on('mouseout', function() {
+        this.closePopup();
+      });
+    });
+
+    // Invalider la taille de la carte après un court délai pour s'assurer qu'elle est bien rendue
+    setTimeout(function() {
+      map.invalidateSize();
+    }, 100);
+
     // Redimensionner les graphiques lors du resize de la fenêtre
     window.addEventListener('resize', () => {
       myChart1.resize();
       myChart2.resize();
+      map.invalidateSize();
       
       // Recalculer le radius du graphique 1 selon la nouvelle taille
       var isMobile = window.innerWidth < 1024;
