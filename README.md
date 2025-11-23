@@ -16,4 +16,4 @@ Pour notre application, nous utilisons plusieurs languages qui sont : HTML, CSS,
 ## 3. Guide de déploiement 
 
 (quelles méthodes on utilise : méthode "get"?, comment lancer l'app via live server par exemple)
-
+Toutes les données sont récupérées via des appels HTTP GET vers les sources ouvertes (API ou fichiers JSON).
