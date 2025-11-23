@@ -217,3 +217,78 @@ document.addEventListener('DOMContentLoaded', () => {
       });
     });
 });
+
+
+
+// ==========================================
+//  SCRIPTS POUR LA PAGE D'ACCUEIL (HOME)
+// ==========================================
+
+// Vérifier si on est sur la page d'accueil
+const isHomePageAccueil = document.querySelector('.container-accueil') !== null;
+
+if (isHomePageAccueil) {
+  console.log('Page d\'accueil détectée');
+
+  // Button interactions
+  const btnPrimaryAccueil = document.querySelector('.btn-primary-accueil');
+  const btnSecondaryAccueil = document.querySelector('.btn-secondary-accueil');
+
+  if (btnPrimaryAccueil) {
+    btnPrimaryAccueil.addEventListener('click', function() {
+      console.log('Explorer clicked');
+      // Navigation vers la page d'exploration/formations
+      window.location.href = 'formation.html';
+    });
+  }
+
+  if (btnSecondaryAccueil) {
+    btnSecondaryAccueil.addEventListener('click', function() {
+      console.log('En savoir plus clicked');
+      // Navigation vers la page d'informations
+      window.location.href = 'accueil.html';
+    });
+  }
+
+  // Effet de parallaxe léger sur l'image hero au scroll (optionnel)
+  const heroImageAccueil = document.querySelector('.hero-image-accueil');
+  if (heroImageAccueil) {
+    window.addEventListener('scroll', function() {
+      const scrolled = window.pageYOffset;
+      const rate = scrolled * 0.3;
+      heroImageAccueil.style.transform = `translateY(${rate}px)`;
+    });
+  }
+}
+
+// ==========================================
+//  SCRIPTS POUR LA PAGE EXPLORER
+// ==========================================
+
+// Vérifier si on est sur la page explorer
+const isExplorerPage = document.querySelector('.main-explorer') !== null;
+
+if (isExplorerPage) {
+  console.log('Page Explorer détectée');
+
+  // Gestion des clics sur les cartes de formation
+  const formationCards = document.querySelectorAll('.formation-card');
+  
+  formationCards.forEach((card) => {
+    card.addEventListener('click', function() {
+      const title = this.querySelector('.formation-card-title').textContent;
+      console.log(`Carte cliquée: ${title}`);
+      
+      // Navigation vers la page formation.html
+      window.location.href = 'formation.html';
+    });
+  });
+
+  // Smooth scroll pour le conteneur
+  const scrollContainer = document.querySelector('.formations-scroll-container');
+  
+  // Améliorer le scroll sur mobile avec momentum
+  if (scrollContainer) {
+    scrollContainer.style.webkitOverflowScrolling = 'touch';
+  }
+}
