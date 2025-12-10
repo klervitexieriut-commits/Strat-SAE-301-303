@@ -1,6 +1,7 @@
-<<<<<<< HEAD
+/*<<<<<<< HEAD
+
 /* ==========================================
-       RESET & BASE STYLES
+        RESET & BASE STYLES
        ========================================== */
 * {
   margin: 0;
@@ -25,7 +26,7 @@ main {
 }
 
 /* ==========================================
-       HEADER - FIXE EN HAUT (MOBILE)
+        HEADER - FIXE EN HAUT (MOBILE)
        ========================================== */
 .header {
   position: fixed;
@@ -109,7 +110,7 @@ main {
 }
 
 /* ==========================================
-       CARD UNIQUE - FORMATION X + GRAPHIQUES
+        CARD UNIQUE - FORMATION X + GRAPHIQUES
        ========================================== */
 .main-card {
   background-color: #ffffff;
@@ -265,7 +266,7 @@ main {
 }
 
 /* ==========================================
-       BOUTON FILTRE FLOTTANT
+        BOUTON FILTRE FLOTTANT
        ========================================== */
 .floating-filter {
   position: fixed;
@@ -298,7 +299,7 @@ main {
 }
 
 /* ==========================================
-       BOTTOM NAVIGATION - FIXE (MOBILE)
+        BOTTOM NAVIGATION - FIXE (MOBILE)
        ========================================== */
 .bottom-nav {
   position: fixed;
@@ -343,7 +344,7 @@ main {
 }
 
 /* ==========================================
-       RESPONSIVE - DESKTOP (1024px)
+        RESPONSIVE - DESKTOP (1024px)
        ========================================== */
 @media (min-width: 1024px) {
   body {
@@ -444,9 +445,12 @@ main {
   .bottom-nav {
     display: none;
   }
-=======
+}
+
+/*=======*/
+
 /* ==========================================
-       RESET & BASE STYLES
+        RESET & BASE STYLES
        ========================================== */
 * {
   margin: 0;
@@ -471,7 +475,7 @@ main {
 }
 
 /* ==========================================
-       HEADER - FIXE EN HAUT (MOBILE)
+        HEADER - FIXE EN HAUT (MOBILE)
        ========================================== */
 .header {
   position: fixed;
@@ -555,7 +559,7 @@ main {
 }
 
 /* ==========================================
-       CARD UNIQUE - FORMATION X + GRAPHIQUES
+        CARD UNIQUE - FORMATION X + GRAPHIQUES
        ========================================== */
 .main-card {
   background-color: #ffffff;
@@ -711,7 +715,7 @@ main {
 }
 
 /* ==========================================
-       BOUTON FILTRE FLOTTANT
+        BOUTON FILTRE FLOTTANT
        ========================================== */
 .floating-filter {
   position: fixed;
@@ -744,7 +748,7 @@ main {
 }
 
 /* ==========================================
-       BOTTOM NAVIGATION - FIXE (MOBILE)
+        BOTTOM NAVIGATION - FIXE (MOBILE)
        ========================================== */
 .bottom-nav {
   position: fixed;
@@ -789,7 +793,7 @@ main {
 }
 
 /* ==========================================
-       RESPONSIVE - DESKTOP (1024px)
+        RESPONSIVE - DESKTOP (1024px)
        ========================================== */
 @media (min-width: 1024px) {
   body {
@@ -899,7 +903,7 @@ main {
 }
 
 /* ==========================================
-       STYLES POUR LA PAGE D'ACCUEIL (HOME)
+        STYLES POUR LA PAGE D'ACCUEIL (HOME)
        ========================================== */
 
 /* Main Content Accueil */
@@ -1311,5 +1315,6 @@ main {
   .formation-card-description {
     font-size: 1rem;
   }
->>>>>>> 72fa04c798855d0361aa4356d399a3f21137e8e8
+
+  /*>>>>>>>72fa04c798855d0361aa4356d399a3f21137e8e8*/
 }
