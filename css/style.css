@@ -1270,7 +1270,7 @@ main {
       STYLES POUR LA PAGE EXPLORER
        ========================================== */
 .pinfo {
-  max-width: 800px;
+  max-width: 900px;
   margin: 0 auto;
   padding: 20px;
 }
@@ -1281,6 +1281,7 @@ main {
 
 .pinfo a {
   text-decoration: none;
+  color: #0D79F2;
 }
 
 .pinfo a:hover {
