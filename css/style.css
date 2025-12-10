@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 /* ==========================================
        RESET & BASE STYLES
        ========================================== */
@@ -443,4 +444,872 @@ main {
   .bottom-nav {
     display: none;
   }
+=======
+/* ==========================================
+       RESET & BASE STYLES
+       ========================================== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+  background-color: #e8e8e8;
+  color: #333;
+  line-height: 1.6;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+main {
+  flex: 1;
+  padding-bottom: 80px;
+  padding-top: 70px;
+}
+
+/* ==========================================
+       HEADER - FIXE EN HAUT (MOBILE)
+       ========================================== */
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background-color: #d9d9d9;
+  padding: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+  height: 70px;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 1%;
+}
+
+.logo img {
+  width: 100px;
+  height: 100px;
+  fill: #666;
+}
+
+/* Menu déroulant desktop */
+.dropdown-menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background-color: #ffffff;
+  border: 2px solid white;
+  border-top: none;
+  border-radius: 0 0 12px 12px;
+  display: none;
+  flex-direction: column;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  z-index: 1001;
+}
+
+.dropdown-menu.active {
+  display: flex;
+}
+
+.dropdown-item {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  padding: 1rem 2rem;
+  text-decoration: none;
+  color: #555;
+  transition: background-color 0.3s ease;
+  border-bottom: 1px solid #eee;
+}
+
+.dropdown-item:last-child {
+  border-bottom: none;
+}
+
+.dropdown-item:hover,
+.dropdown-item.active {
+  background-color: #f5f5f5;
+  color: #0D79F2;
+}
+
+.dropdown-item svg {
+  width: 24px;
+  height: 24px;
+  fill: currentColor;
+  flex-shrink: 0;
+}
+
+.dropdown-item span {
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+/* ==========================================
+       CARD UNIQUE - FORMATION X + GRAPHIQUES
+       ========================================== */
+.main-card {
+  background-color: #ffffff;
+  margin: 1rem;
+  border-radius: 12px;
+  padding: 1.5rem;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+}
+
+/* En-tête Formation X */
+.formation-header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.formation-title {
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: #0D79F2;
+  flex-shrink: 0;
+}
+
+.filters-container {
+  display: flex;
+  gap: 0.6rem;
+  flex-wrap: wrap;
+}
+
+.filter-btn {
+  padding: 0.5rem 1.2rem;
+  background-color: #0D79F2;
+  color: white;
+  border: none;
+  border-radius: 25px;
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  white-space: nowrap;
+}
+
+.filter-btn:hover {
+  background-color: white;
+  color: #0D79F2;
+}
+
+/* Contenu texte + image */
+.formation-content {
+  display: flex;
+  flex-direction: row;
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+  align-items: flex-start;
+}
+
+.formation-description {
+  flex: 1;
+  font-size: 0.8rem;
+  line-height: 1.8;
+  color: #555;
+  min-width: 0;
+}
+
+.formation-image {
+  flex: 0 0 45%;
+  max-width: 45%;
+  aspect-ratio: 4/3;
+  background-color: #fff;
+  border: 2px solid #0D79F2;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.formation-image:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2);
+}
+
+/* Croix diagonale */
+.formation-image::before,
+.formation-image::after {
+  content: '';
+  position: absolute;
+  width: 141%;
+  height: 2px;
+  background-color: #ddd;
+  top: 50%;
+  left: 50%;
+}
+
+.formation-image::before {
+  transform: translate(-50%, -50%) rotate(45deg);
+}
+
+.formation-image::after {
+  transform: translate(-50%, -50%) rotate(-45deg);
+}
+
+/* Graphiques dans la même card */
+.graphics-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+/* Conteneur pour les graphiques ECharts */
+.chart-container {
+  background-color: #ffffff;
+  border: 2px solid #0D79F2;
+  border-radius: 8px;
+  padding: 2rem;
+  min-height: 450px;
+  height: 450px;
+  width: 100%;
+}
+
+/* Conteneur spécifique pour la carte Leaflet */
+.map-container {
+  padding: 0;
+  overflow: hidden;
+  position: relative;
+}
+
+.map-container #carte-france {
+  width: 100%;
+  height: 100%;
+  border-radius: 6px;
+}
+
+/* Style des popups Leaflet pour matcher le design */
+.leaflet-popup-content-wrapper {
+  background-color: #0D79F2;
+  color: white;
+  border-radius: 8px;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+}
+
+.leaflet-popup-content {
+  margin: 10px 15px;
+  font-size: 13px;
+}
+
+.leaflet-popup-tip {
+  background-color: #0D79F2;
+}
+
+/* ==========================================
+       BOUTON FILTRE FLOTTANT
+       ========================================== */
+.floating-filter {
+  position: fixed;
+  left: 1rem;
+  bottom: 100px;
+  width: 56px;
+  height: 56px;
+  background-color: white;
+  color: white;
+  border: 2px solid white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  z-index: 999;
+  transition: transform 0.3s ease;
+}
+
+.floating-filter:hover {
+  transform: scale(1.1);
+  background-color: #0D79F2;
+}
+
+.floating-filter svg {
+  width: 24px;
+  height: 24px;
+  fill: #2c2c2c;
+}
+
+/* ==========================================
+       BOTTOM NAVIGATION - FIXE (MOBILE)
+       ========================================== */
+.bottom-nav {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: #ffffff;
+  border-top: 2px solid #ddd;
+  display: flex;
+  justify-content: space-around;
+  padding: 0.8rem 0;
+  box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+}
+
+.nav-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.3rem;
+  text-decoration: none;
+  color: #555;
+  cursor: pointer;
+  transition: color 0.3s ease;
+  padding: 0.5rem 1rem;
+}
+
+.nav-item:hover,
+.nav-item.active {
+  color: #2c2c2c;
+}
+
+.nav-item svg {
+  width: 24px;
+  height: 24px;
+  fill: currentColor;
+}
+
+.nav-item span {
+  font-size: 0.75rem;
+  font-weight: 500;
+}
+
+/* ==========================================
+       RESPONSIVE - DESKTOP (1024px)
+       ========================================== */
+@media (min-width: 1024px) {
+  body {
+    background-color: #ffffff;
+  }
+
+  main {
+    padding-top: 80px;
+    padding-bottom: 2rem;
+  }
+
+  .header {
+    height: 80px;
+    padding: 1.5rem 2rem;
+  }
+
+  .logo img {
+    width: 100px;
+    height: 100px;
+  }
+
+  /* Menu hamburger apparaît en desktop */
+  .menu-icon {
+    position: absolute;
+    left: 2rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+  }
+
+  .menu-icon svg {
+    width: 28px;
+    height: 28px;
+    stroke: #333;
+  }
+
+  /* Card principale */
+  .main-card {
+    margin: 2rem 4rem;
+    padding: 2.5rem;
+    border-radius: 16px;
+  }
+
+  /* Formation X - Grid 2 colonnes */
+  .formation-wrapper {
+    display: block;
+    margin-bottom: 3rem;
+  }
+
+  .formation-left {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .formation-header {
+    margin-bottom: 1.5rem;
+  }
+
+  .formation-title {
+    font-size: 1.8rem;
+  }
+
+  .formation-content {
+    gap: 3rem;
+  }
+
+  .formation-description {
+    font-size: 0.95rem;
+    line-height: 1.7;
+  }
+
+  .formation-image {
+    flex: 0 0 40%;
+    max-width: 40%;
+    aspect-ratio: 4/3;
+  }
+
+  /* Graphiques en full-width */
+  .graphics-container {
+    gap: 2rem;
+  }
+
+  .chart-container {
+    min-height: 500px;
+    height: 500px;
+    padding: 2.5rem;
+  }
+
+  .map-container {
+    padding: 0;
+  }
+
+  /* Bouton filtre */
+  .floating-filter {
+    left: 2rem;
+    bottom: 2rem;
+  }
+
+  /* Bottom nav disparaît en desktop */
+  .bottom-nav {
+    display: none;
+  }
+}
+
+/* ==========================================
+       STYLES POUR LA PAGE D'ACCUEIL (HOME)
+       ========================================== */
+
+/* Main Content Accueil */
+.main-accueil {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  min-height: calc(100vh - 140px);
+  padding-bottom: 2rem;
+}
+
+.container-accueil {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1.25rem;
+  max-width: 600px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+/* Hero Image Accueil */
+.hero-image-accueil {
+  width: 100%;
+  aspect-ratio: 16/10;
+  background-color: white;
+  border: 2px solid #0D79F2;
+  border-radius: 8px;
+  position: relative;
+  overflow: hidden;
+  margin-bottom: 1.5rem;
+  transition: transform 0.3s ease;
+}
+
+.hero-image-accueil::before,
+.hero-image-accueil::after {
+  content: '';
+  position: absolute;
+  background-color: #0D79F2;
+  width: 141%;
+  height: 2px;
+  left: 50%;
+  top: 50%;
+}
+
+.hero-image-accueil::before {
+  transform: translate(-50%, -50%) rotate(45deg);
+}
+
+.hero-image-accueil::after {
+  transform: translate(-50%, -50%) rotate(-45deg);
+}
+
+/* Title Section Accueil */
+.title-section-accueil {
+  text-align: center;
+  margin-bottom: 1.25rem;
+}
+
+.main-title-accueil {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #1a1a1a;
+  margin-bottom: 1rem;
+}
+
+.description-accueil {
+  font-size: 0.875rem;
+  color: #555;
+  line-height: 1.7;
+  text-align: center;
+  margin-bottom: 2rem;
+  padding: 0 1rem;
+}
+
+/* Buttons Accueil */
+.button-group-accueil {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  width: 100%;
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+.btn-accueil {
+  padding: 1rem 2rem;
+  font-size: 1rem;
+  font-weight: 600;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-align: center;
+}
+
+.btn-primary-accueil {
+  background-color: #0D79F2;
+  color: white;
+}
+
+.btn-primary-accueil:hover {
+  background-color: #0a5fc7;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(13, 121, 242, 0.3);
+}
+
+.btn-secondary-accueil {
+  background-color: white;
+  color: #0D79F2;
+  border: 2px solid #0D79F2;
+}
+
+.btn-secondary-accueil:hover {
+  background-color: #f8f8f8;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(13, 121, 242, 0.15);
+}
+
+/* ==========================================
+       RESPONSIVE - TABLET (768px)
+       ========================================== */
+@media (min-width: 768px) {
+  .container-accueil {
+    max-width: 700px;
+    padding: 2.5rem 1.5rem;
+  }
+
+  .hero-image-accueil {
+    margin-bottom: 2rem;
+  }
+
+  .main-title-accueil {
+    font-size: 2.5rem;
+  }
+
+  .description-accueil {
+    font-size: 0.9375rem;
+    margin-bottom: 2.5rem;
+  }
+
+  .button-group-accueil {
+    max-width: 450px;
+  }
+}
+
+/* ==========================================
+       RESPONSIVE - DESKTOP (1024px)
+       ========================================== */
+@media (min-width: 1024px) {
+  .main-accueil {
+    padding-top: 6rem;
+    background-color: #ffffff;
+  }
+
+  .container-accueil {
+    max-width: 1200px;
+    padding: 3rem 2rem;
+    margin-top: 4rem;
+  }
+
+  /* Layout en 2 colonnes pour titre + texte à gauche, image à droite */
+  .container-accueil {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto auto auto;
+    gap: 2rem;
+    align-items: start;
+  }
+
+  /* Titre à gauche en haut */
+  .title-section-accueil {
+    grid-column: 1;
+    grid-row: 1;
+    text-align: left;
+    margin-bottom: 0;
+  }
+
+  .main-title-accueil {
+    font-size: 3.5rem;
+    margin-bottom: 1.5rem;
+  }
+
+  /* Description à gauche en dessous du titre */
+  .description-accueil {
+    grid-column: 1;
+    grid-row: 2;
+    text-align: left;
+    padding: 0;
+    font-size: 1rem;
+    margin-bottom: 0;
+  }
+
+  /* Boutons à gauche en bas */
+  .button-group-accueil {
+    grid-column: 1;
+    grid-row: 3;
+    flex-direction: row;
+    justify-content: flex-start;
+    max-width: 100%;
+    gap: 1.5rem;
+    margin: 0;
+  }
+
+  .btn-accueil {
+    min-width: 180px;
+  }
+
+  /* Image hero à droite, prend toute la hauteur */
+  .hero-image-accueil {
+    grid-column: 2;
+    grid-row: 1 / 4;
+    width: 100%;
+    height: 100%;
+    min-height: 400px;
+    margin-bottom: 0;
+    aspect-ratio: auto;
+  }
+}
+
+/* Section Titre Logo en bas de page */
+.titre-logo-section {
+  width: 100%;
+  background-color: #d9d9d9;
+  padding: 3rem 0;
+  text-align: center;
+  margin-top: 3rem;
+}
+
+.titre-logo {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #1a1a1a;
+  margin: 0;
+}
+
+@media (min-width: 1024px) {
+  .titre-logo-section {
+    margin-top: 8rem;
+    padding: 4rem 0;
+  }
+
+  .titre-logo {
+    font-size: 3rem;
+  }
+}
+
+
+
+/* ==========================================
+       STYLES POUR LA PAGE EXPLORER
+       ========================================== */
+
+/* Main Explorer */
+.main-explorer {
+  flex: 1;
+  width: 100%;
+  height: calc(100vh - 140px);
+  overflow: hidden;
+  position: relative;
+}
+
+/* Conteneur avec scroll vertical et horizontal */
+.formations-scroll-container {
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  padding: 1rem;
+}
+
+/* Grille de formations avec scroll */
+.formations-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(280px, 1fr));
+  gap: 1.5rem;
+  width: fit-content;
+  min-width: 100%;
+  padding-bottom: 2rem;
+}
+
+/* Carte Formation */
+.formation-card {
+  background-color: white;
+  border: 2px solid #2c2c2c;
+  border-radius: 16px;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  min-width: 280px;
+  width: 100%;
+}
+
+.formation-card:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 12px 30px rgba(13, 121, 242, 0.3);
+  border-color: #0D79F2;
+}
+
+.formation-card:active {
+  transform: translateY(-4px) scale(1.01);
+}
+
+/* Image de la carte */
+.formation-card-image {
+  width: 100%;
+  aspect-ratio: 16/10;
+  background-color: #f5f5f5;
+  border-bottom: 2px solid #2c2c2c;
+  position: relative;
+  overflow: hidden;
+  transition: background-color 0.3s ease;
+}
+
+.formation-card:hover .formation-card-image {
+  background-color: #e8f4ff;
+}
+
+.formation-card-image::before,
+.formation-card-image::after {
+  content: '';
+  position: absolute;
+  background-color: #ddd;
+  width: 141%;
+  height: 2px;
+  left: 50%;
+  top: 50%;
+  transition: background-color 0.3s ease;
+}
+
+.formation-card:hover .formation-card-image::before,
+.formation-card:hover .formation-card-image::after {
+  background-color: #0D79F2;
+}
+
+.formation-card-image::before {
+  transform: translate(-50%, -50%) rotate(45deg);
+}
+
+.formation-card-image::after {
+  transform: translate(-50%, -50%) rotate(-45deg);
+}
+
+/* Contenu de la carte */
+.formation-card-content {
+  padding: 1.5rem;
+}
+
+.formation-card-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #1a1a1a;
+  margin-bottom: 0.5rem;
+  transition: color 0.3s ease;
+}
+
+.formation-card:hover .formation-card-title {
+  color: #0D79F2;
+}
+
+.formation-card-description {
+  font-size: 0.875rem;
+  color: #555;
+  margin: 0;
+}
+
+/* ==========================================
+       RESPONSIVE - TABLET (768px)
+       ========================================== */
+@media (min-width: 768px) {
+  .formations-scroll-container {
+    padding: 2rem;
+  }
+
+  .formations-grid {
+    grid-template-columns: repeat(3, minmax(300px, 1fr));
+    gap: 2rem;
+  }
+
+  .formation-card {
+    min-width: 300px;
+  }
+}
+
+/* ==========================================
+       RESPONSIVE - DESKTOP (1024px)
+       ========================================== */
+@media (min-width: 1024px) {
+  .main-explorer {
+    height: calc(100vh - 160px);
+  }
+
+  .formations-scroll-container {
+    padding: 3rem 4rem;
+  }
+
+  .formations-grid {
+    grid-template-columns: repeat(4, minmax(320px, 1fr));
+    gap: 2.5rem;
+  }
+
+  .formation-card {
+    min-width: 320px;
+  }
+
+  .formation-card-title {
+    font-size: 1.75rem;
+  }
+
+  .formation-card-description {
+    font-size: 1rem;
+  }
+>>>>>>> 72fa04c798855d0361aa4356d399a3f21137e8e8
 }
