@@ -1021,7 +1021,7 @@ main {
 }
 
 /* ==========================================
-       RESPONSIVE - TABLET (768px)
+      RESPONSIVE - TABLET (768px)
        ========================================== */
 @media (min-width: 768px) {
   .container-accueil {
@@ -1048,7 +1048,7 @@ main {
 }
 
 /* ==========================================
-       RESPONSIVE - DESKTOP (1024px)
+      RESPONSIVE - DESKTOP (1024px)
        ========================================== */
 @media (min-width: 1024px) {
   .main-accueil {
