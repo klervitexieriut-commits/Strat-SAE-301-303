@@ -1,20 +1,13 @@
 <!DOCTYPE html>
 <html lang="fr">
-
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Formation X - Trouvez votre Master</title>
-  <meta name="description" content="Trouver votre master facilement avec Master-Class">
+  <title>Formation - Détails</title>
+  <meta name="description" content="Détails de la formation">
   <link rel="stylesheet" href="./css/style.css">
-  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
-    integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
-  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
-    integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/echarts/5.4.3/echarts.min.js"></script>
-  <script src="./script.js"></script>
 </head>
-
 <body>
   <!-- HEADER FIXE -->
   <header class="header">
@@ -28,12 +21,12 @@
     </div>
 
     <div class="logo">
-      <img class="logo-master-class" src="./images/svg/logo-master-class.svg" alt="Le Logo Master Class">
+     <img class="logo-master-class" src="./images/svg/logo-master-class.svg" alt="Le Logo Master Class">
     </div>
 
     <!-- Menu déroulant pour desktop -->
     <nav class="dropdown-menu">
-      <a href="accueil.html" class="dropdown-item active">
+      <a href="explorer.html" class="dropdown-item">
         <svg viewBox="0 0 24 24">
           <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
           <polyline points="9 22 9 12 15 12 15 22"></polyline>
@@ -49,13 +42,6 @@
         </svg>
         <span>Infos</span>
       </a>
-      <a href="explorer.html" class="dropdown-item">
-        <svg viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" fill="none">
-          <circle cx="11" cy="11" r="8"></circle>
-          <line x1="21" y1="21" x2="16.65" y2="16.65" />
-        </svg>
-        <span>Explorer</span>
-      </a>
     </nav>
   </header>
 
@@ -64,7 +50,7 @@
     <div class="main-card">
       <!-- Formation X en mobile -->
       <div class="formation-header">
-        <h1 class="formation-title">Formation X</h1>
+        <h1 class="formation-title">Chargement...</h1>
         <div class="filters-container">
           <button class="filter-btn">Filtre n°1</button>
           <button class="filter-btn">Filtre n°2</button>
@@ -76,12 +62,9 @@
         <!-- Texte + Image côte à côte -->
         <div class="formation-content">
           <p class="formation-description">
-            Lorem ipsum dolor sit amet consectetur. Laorest inversea tempo marbi facas sit sed. Factiisis turpis amet
-            id facilisis amet dolar cursus at sed facilisis. Lorem ipsum dolor sit amet consectetur laoresst inversea
-            tempo marbi facas sit sed anet id facilisis amet dolar cursum ullamcorper morbi lacus sit sed.
-            Lorem ipsum dolor sit amet consectetur. Laorest inversea tempo marbi facas sit sed anet id facilisis.
+            Chargement des détails de la formation...
           </p>
-
+          
           <!-- Image toujours à droite -->
           <div class="formation-image"></div>
         </div>
@@ -89,11 +72,22 @@
 
       <!-- Graphiques dans la même card -->
       <div class="graphics-container">
-        <div id="chart1" class="chart-container"></div>
-
-        <div id="chart2" class="chart-container"></div>
-
-        <div id="carte-france" class="chart-container map-container"></div>
+        <div id="chart1" class="chart-container" style="min-height: 300px;"></div>
+        
+        <div id="chart2" class="chart-container" style="min-height: 300px;"></div>
+        
+        <!-- Google Maps Iframe Container -->
+        <div class="chart-container map-container" style="min-height: 300px;">
+          <iframe 
+            id="carte-google-maps" 
+            src="about:blank"
+            frameborder="0" 
+            scrolling="no" 
+            marginheight="0" 
+            marginwidth="0"
+            style="width: 100%; height: 100%; border-radius: 6px;">
+          </iframe>
+        </div>
       </div>
     </div>
 
@@ -107,15 +101,15 @@
 
   <!-- BOTTOM NAVIGATION FIXE (MOBILE UNIQUEMENT) -->
   <nav class="bottom-nav">
-    <a href="#" class="nav-item active">
+    <a href="explorer.html" class="nav-item">
       <svg viewBox="0 0 24 24">
         <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
         <polyline points="9 22 9 12 15 12 15 22"></polyline>
       </svg>
       <span>Accueil</span>
     </a>
-
-    <a href="#" class="nav-item">
+    
+    <a href="info.html" class="nav-item">
       <svg viewBox="0 0 24 24">
         <circle cx="12" cy="12" r="10"></circle>
         <line x1="12" y1="16" x2="12" y2="12"></line>
@@ -125,7 +119,7 @@
     </a>
   </nav>
 
-
+  <script src="./script.js"></script>
+  <script type="module" src="./scripts/orchestrator.js"></script>
 </body>
-
 </html>
