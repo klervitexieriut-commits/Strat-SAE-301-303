@@ -1,5 +1,5 @@
 # Strat-SAE-301-303/Groupe 3 - Documentation administrateur
-## 1. Rappel de présentation 
+## 1. Présentation 
 
 MasterClass est une application web développée dans le but de présenter de façon originale et novatrice les données concerant les Masters. 
 L’objectif est de rendre la recherche d’informations plus simple et dynamique de manière à ce que la comparaison entre les différentes formations soit plus facile. 
