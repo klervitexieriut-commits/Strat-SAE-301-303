@@ -27,6 +27,82 @@ function buildFormationDescription(formation) {
     `;
 }
 
+function generateDynamicFilters(formation) {
+    const filtersContainer = document.getElementById('dynamicFilters');
+    if (!filtersContainer) return;
+
+    filtersContainer.innerHTML = '';
+
+    const filters = [
+        formation.eta_nom,
+        formation.acad_lib,
+        formation.disci_lib
+    ].filter(f => f);
+
+    filters.forEach((filter, index) => {
+        const btn = document.createElement('button');
+        btn.className = 'filter-btn';
+        btn.textContent = filter;
+        btn.addEventListener('click', () => {
+            handleFilterClick(filter);
+        });
+        filtersContainer.appendChild(btn);
+    });
+}
+
+function handleFilterClick(filterValue) {
+    const modal = document.createElement('div');
+    modal.style.cssText = `
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: rgba(0, 0, 0, 0.5);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        z-index: 2000;
+    `;
+
+    const content = document.createElement('div');
+    content.style.cssText = `
+        background: white;
+        padding: 20px;
+        border-radius: 8px;
+        max-width: 400px;
+    `;
+
+    const title = document.createElement('h2');
+    title.textContent = 'Détail du filtre';
+    title.style.marginTop = '0';
+    content.appendChild(title);
+
+    const info = document.createElement('p');
+    info.textContent = filterValue;
+    info.style.fontSize = '16px';
+    content.appendChild(info);
+
+    const closeBtn = document.createElement('button');
+    closeBtn.textContent = 'Fermer';
+    closeBtn.style.cssText = `
+        padding: 10px 20px;
+        background: #0D79F2;
+        color: white;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        width: 100%;
+    `;
+    closeBtn.addEventListener('click', () => {
+        modal.remove();
+    });
+    content.appendChild(closeBtn);
+
+    modal.appendChild(content);
+    document.body.appendChild(modal);
+}
+
 function updateFormationContent(formation) {
     const titleEl = document.querySelector('.formation-title');
     if (titleEl) {
@@ -37,6 +113,8 @@ function updateFormationContent(formation) {
     if (descEl) {
         descEl.innerHTML = buildFormationDescription(formation);
     }
+
+    generateDynamicFilters(formation);
 }
 
 function displayError(message) {

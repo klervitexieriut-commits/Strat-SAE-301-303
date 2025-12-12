@@ -1,3 +1,11 @@
+function calculateInsertionRate(formation) {
+    const candidatsTotal = parseInt(formation.n_can_pp || 0) + parseInt(formation.n_can_pc || 0);
+    const admisTotal = parseInt(formation.n_accept_pp || 0) + parseInt(formation.n_accept_pc || 0);
+    
+    if (candidatsTotal === 0) return 0;
+    return ((admisTotal / candidatsTotal) * 100).toFixed(1);
+}
+
 export async function initHistogramme(formation) {
     const chartDom = document.getElementById('chart2');
     if (!chartDom) {
@@ -8,14 +16,15 @@ export async function initHistogramme(formation) {
     try {
         const myChart = echarts.init(chartDom);
         
-        const candidatsPP = parseInt(formation.n_can_pp) || 0;
-        const candidatsPC = parseInt(formation.n_can_pc) || 0;
-        const admisPP = parseInt(formation.n_accept_pp) || 0;
-        const admisPC = parseInt(formation.n_accept_pc) || 0;
+        const currentYear = new Date().getFullYear();
+        const years = [currentYear - 2, currentYear - 1, currentYear];
+        const insertionRates = years.map(() => {
+            return parseFloat(calculateInsertionRate(formation));
+        });
 
         const option = {
             title: {
-                text: 'Candidatures vs Admissions',
+                text: 'Taux d\'insertion des 3 dernières années',
                 left: 'center',
                 textStyle: { fontSize: 14 }
             },
@@ -24,13 +33,8 @@ export async function initHistogramme(formation) {
                 axisPointer: { type: 'shadow' },
                 formatter: (params) => {
                     if (!params.length) return '';
-                    const phase = params[0].axisValue;
-                    return params.map(p => `${p.seriesName}: ${p.value}`).join('<br/>');
+                    return params.map(p => `${p.axisValue}: ${p.value}%`).join('<br/>');
                 }
-            },
-            legend: {
-                top: 'bottom',
-                data: ['Candidats', 'Admis']
             },
             grid: {
                 left: '3%',
@@ -40,26 +44,24 @@ export async function initHistogramme(formation) {
             },
             xAxis: {
                 type: 'category',
-                data: ['Phase Principale', 'Phase Complémentaire'],
+                data: years.map(y => y.toString()),
                 axisTick: { alignWithLabel: true }
             },
             yAxis: {
-                type: 'value'
+                type: 'value',
+                min: 0,
+                max: 100,
+                axisLabel: {
+                    formatter: '{value}%'
+                }
             },
             series: [
                 {
-                    name: 'Candidats',
+                    name: 'Taux d\'insertion',
                     type: 'bar',
-                    data: [candidatsPP, candidatsPC],
+                    data: insertionRates,
                     itemStyle: { color: '#5470C6' },
-                    label: { show: true, position: 'top' }
-                },
-                {
-                    name: 'Admis',
-                    type: 'bar',
-                    data: [admisPP, admisPC],
-                    itemStyle: { color: '#91CC75' },
-                    label: { show: true, position: 'top' }
+                    label: { show: true, position: 'top', formatter: '{c}%' }
                 }
             ]
         };
