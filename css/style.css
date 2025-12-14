@@ -95,11 +95,13 @@ main {
   color: #0D79F2;
 }
 
-.dropdown-item svg {
+.dropdown-item svg,
+.dropdown-item img {
   width: 24px;
   height: 24px;
   fill: currentColor;
   flex-shrink: 0;
+  filter: invert(0.25) sepia(0.85) saturate(1.2) hue-rotate(200deg);
 }
 
 .dropdown-item span {
@@ -290,7 +292,8 @@ main {
   background-color: #0D79F2;
 }
 
-.floating-filter svg {
+.floating-filter svg,
+.floating-filter img {
   width: 24px;
   height: 24px;
   fill: #2c2c2c;
@@ -330,10 +333,12 @@ main {
   color: #2c2c2c;
 }
 
-.nav-item svg {
+.nav-item svg,
+.nav-item img {
   width: 24px;
   height: 24px;
   fill: currentColor;
+  filter: invert(0.3) sepia(0.85) saturate(1.2) hue-rotate(200deg);
 }
 
 .nav-item span {
@@ -376,10 +381,12 @@ main {
     height: 40px;
   }
 
-  .menu-icon svg {
+  .menu-icon svg,
+  .menu-icon img {
     width: 28px;
     height: 28px;
     stroke: #333;
+    filter: invert(0.2);
   }
 
   /* Card principale */
@@ -543,11 +550,13 @@ main {
   color: #0D79F2;
 }
 
-.dropdown-item svg {
+.dropdown-item svg,
+.dropdown-item img {
   width: 24px;
   height: 24px;
   fill: currentColor;
   flex-shrink: 0;
+  filter: invert(0.25) sepia(0.85) saturate(1.2) hue-rotate(200deg);
 }
 
 .dropdown-item span {
@@ -723,7 +732,8 @@ main {
   background-color: #0D79F2;
 }
 
-.floating-filter svg {
+.floating-filter svg,
+.floating-filter img {
   width: 24px;
   height: 24px;
   fill: #2c2c2c;
@@ -763,10 +773,12 @@ main {
   color: #2c2c2c;
 }
 
-.nav-item svg {
+.nav-item svg,
+.nav-item img {
   width: 24px;
   height: 24px;
   fill: currentColor;
+  filter: invert(0.3) sepia(0.85) saturate(1.2) hue-rotate(200deg);
 }
 
 .nav-item span {
@@ -809,10 +821,12 @@ main {
     height: 40px;
   }
 
-  .menu-icon svg {
+  .menu-icon svg,
+  .menu-icon img {
     width: 28px;
     height: 28px;
     stroke: #333;
+    filter: invert(0.2);
   }
 
   /* Card principale */
