@@ -27,8 +27,6 @@ function initializeHomePageButtons() {
     const isHomePage = document.querySelector('.container-accueil') !== null;
     if (!isHomePage) return;
 
-    console.log('Page d\'accueil détectée');
-
     const btnPrimaryAccueil = document.querySelector('.btn-primary-accueil');
     if (btnPrimaryAccueil) {
         btnPrimaryAccueil.addEventListener('click', () => {

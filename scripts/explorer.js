@@ -3,14 +3,16 @@ import { getFormations, getUniqueDomains } from './recupdedonne.js';
 const state = {
     allFormations: [],
     filteredFormations: [],
-    selectedFilters: new Set()
+    selectedFilters: new Set(),
+    currentPage: 1,
+    itemsPerPage: 20,
+    isLoading: false
 };
 
 async function loadFormations() {
     try {
         state.allFormations = await getFormations();
         state.filteredFormations = [...state.allFormations];
-        console.log(`${state.allFormations.length} formations chargées`);
         return state.allFormations;
     } catch (error) {
         console.error("Erreur lors du chargement des formations :", error);
@@ -22,8 +24,14 @@ function createFormationCard(formation) {
     const card = document.createElement('article');
     card.className = 'formation-card';
     
+    const logoUrl = `https://monmaster.gouv.fr/api/logo/${formation.eta_uai}`;
+    
     card.innerHTML = `
-        <div class="formation-card-image"></div>
+        <div class="formation-card-image">
+            <img src="${logoUrl}" alt="Logo" style="width: 100%; height: 100%; object-fit: contain; padding: 20px; display: none;" 
+                 onload="this.style.display='block'; this.parentElement.classList.add('has-logo');" 
+                 onerror="this.style.display='none'; this.parentElement.style.backgroundColor='#f0f0f0';">
+        </div>
         <div class="formation-card-content">
             <h2 class="formation-card-title">${formation.mention || 'Mention inconnue'}</h2>
             <p class="formation-card-description">
@@ -40,36 +48,82 @@ function createFormationCard(formation) {
     return card;
 }
 
-function renderFormations(formations) {
+async function renderFormations(formations, append = false) {
     const gridContainer = document.querySelector('.formations-grid');
     if (!gridContainer) return;
 
-    gridContainer.innerHTML = '';
+    if (!append) {
+        gridContainer.innerHTML = '';
+        state.currentPage = 1;
+        window.scrollTo(0, 0);
+    }
 
     if (formations.length === 0) {
         gridContainer.innerHTML = '<p style="width: 100%; text-align: center; padding: 20px;">Aucune formation ne correspond aux filtres sélectionnés.</p>';
         return;
     }
 
+    const start = (state.currentPage - 1) * state.itemsPerPage;
+    const end = start + state.itemsPerPage;
+    const pageFormations = formations.slice(start, end);
+
     const fragment = document.createDocumentFragment();
-    formations.forEach(formation => {
+    pageFormations.forEach(formation => {
         fragment.appendChild(createFormationCard(formation));
     });
 
     gridContainer.appendChild(fragment);
+    
+    // Manage sentinel for infinite scroll
+    let sentinel = document.getElementById('scroll-sentinel');
+    if (!sentinel) {
+        sentinel = document.createElement('div');
+        sentinel.id = 'scroll-sentinel';
+        sentinel.style.height = '20px';
+        sentinel.style.width = '100%';
+        gridContainer.parentNode.appendChild(sentinel);
+        setupIntersectionObserver(sentinel);
+    }
+    
+    // Hide sentinel if no more items
+    if (end >= formations.length) {
+        sentinel.style.display = 'none';
+    } else {
+        sentinel.style.display = 'block';
+    }
 }
 
-function applyFilters() {
-    if (state.selectedFilters.size === 0) {
-        state.filteredFormations = [...state.allFormations];
-    } else {
-        state.filteredFormations = state.allFormations.filter(f => {
-            return Array.from(state.selectedFilters).some(filter => 
+function setupIntersectionObserver(sentinel) {
+    const observer = new IntersectionObserver((entries) => {
+        if (entries[0].isIntersecting && !state.isLoading) {
+            loadMoreFormations();
+        }
+    }, { rootMargin: '100px' });
+    
+    observer.observe(sentinel);
+}
+
+function loadMoreFormations() {
+    if (state.isLoading) return;
+    
+    const totalPages = Math.ceil(state.filteredFormations.length / state.itemsPerPage);
+    if (state.currentPage >= totalPages) return;
+
+    state.isLoading = true;
+    state.currentPage++;
+    renderFormations(state.filteredFormations, true);
+    state.isLoading = false;
+}
+
+async function applyFilters() {
+    state.filteredFormations = state.selectedFilters.size === 0 
+        ? [...state.allFormations]
+        : state.allFormations.filter(f => 
+            Array.from(state.selectedFilters).some(filter => 
                 f.disci_lib && f.disci_lib.toLowerCase() === filter.toLowerCase()
-            );
-        });
-    }
-    renderFormations(state.filteredFormations);
+            )
+        );
+    await renderFormations(state.filteredFormations);
 }
 
 async function createFilterUI() {
@@ -166,7 +220,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 
     try {
         await loadFormations();
-        renderFormations(state.allFormations);
+        await renderFormations(state.allFormations);
 
         const filterPanel = await createFilterUI();
 

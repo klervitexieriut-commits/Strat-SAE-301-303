@@ -103,7 +103,7 @@ function handleFilterClick(filterValue) {
     document.body.appendChild(modal);
 }
 
-function updateFormationContent(formation) {
+async function updateFormationContent(formation) {
     const titleEl = document.querySelector('.formation-title');
     if (titleEl) {
         titleEl.textContent = formation.mention || 'Formation sans titre';
@@ -112,6 +112,12 @@ function updateFormationContent(formation) {
     const descEl = document.querySelector('.formation-description');
     if (descEl) {
         descEl.innerHTML = buildFormationDescription(formation);
+    }
+
+    const imageEl = document.querySelector('.formation-image');
+    if (imageEl) {
+        const logoUrl = `https://monmaster.gouv.fr/api/logo/${formation.eta_uai}`;
+        imageEl.innerHTML = `<img src="${logoUrl}" alt="Logo ${formation.eta_nom}" style="width: 100%; height: 100%; object-fit: contain; padding: 20px; display: none;" onload="this.style.display='block'; this.parentElement.classList.add('has-logo');" onerror="this.style.display='none'; this.parentElement.style.backgroundColor='#f0f0f0';">`;
     }
 
     generateDynamicFilters(formation);
@@ -140,22 +146,18 @@ async function initializeFormationPage() {
             throw new Error("Aucun identifiant de formation fourni.");
         }
 
-        console.log(`Chargement de la formation ${formationId}...`);
-
         const formation = await getFormationById(formationId);
         if (!formation) {
             throw new Error("Formation introuvable.");
         }
 
-        updateFormationContent(formation);
+        await updateFormationContent(formation);
 
         await Promise.all([
             initCamembert(formationId),
             initHistogramme(formation),
             initCarte(formationId)
         ]);
-
-        console.log("Page de formation initialisée avec succès");
     } catch (error) {
         console.error("Erreur critique :", error);
         displayError(error.message);
