@@ -37,7 +37,7 @@ function initializeHomePageButtons() {
     const btnSecondaryAccueil = document.querySelector('.btn-secondary-accueil');
     if (btnSecondaryAccueil) {
         btnSecondaryAccueil.addEventListener('click', () => {
-            window.location.href = 'info.html';
+            window.location.href = 'accueil.html#savoir';
         });
     }
 
@@ -59,7 +59,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 const fs = require('fs');
 try {
-    const data = JSON.parse(fs.readFileSync('c:/Users/saidh/OneDrive/Documentos/GitHub/Strat-SAE-301-303/base-de-donnee/fr-esr-mon_master.json'));
+    const data = JSON.parse(fs.readFileSync('./base-de-donnee/fr-esr-mon_master.json'));
     const academies = [...new Set(data.map(d => d.acad_lib))].filter(Boolean).sort();
     console.log(JSON.stringify(academies, null, 2));
 } catch (e) {
