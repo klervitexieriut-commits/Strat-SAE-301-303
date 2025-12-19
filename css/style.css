@@ -312,7 +312,8 @@ main {
   background-color: #0D79F2;
   display: flex;
   flex: row;
-}
+  border-radius: 20px;
+  }
 
 /* ==========================================
         BOTTOM NAVIGATION - FIXE (MOBILE)
