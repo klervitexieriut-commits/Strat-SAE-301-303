@@ -305,6 +305,16 @@ main {
 }
 
 /* ==========================================
+        PAGE info
+       ========================================== */
+.informations  {
+  max-width: 400px;
+  background-color: #0D79F2;
+  display: flex;
+  flex: row;
+}
+
+/* ==========================================
         BOTTOM NAVIGATION - FIXE (MOBILE)
        ========================================== */
 .bottom-nav {

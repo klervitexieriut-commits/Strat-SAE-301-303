@@ -4,10 +4,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Accueil - Trouvez votre Master</title>
-    <meta name="description" content="Trouver votre master facilement avec Master-Class">
+    <title>Formation - Plus d'informations</title>
+    <meta name="description" content="Plus d'informations sur la formation">
     <link rel="stylesheet" href="./css/style.css">
-    <script src="./script.js"></script>
 </head>
 
 <body>
@@ -29,77 +28,59 @@
                 <span>Accueil</span>
             </a>
 
-            <a href="info.html" class="dropdown-item active">
+            <a href="info.html" class="dropdown-item">
                 <img src="./images/svg/info-svgrepo-com.svg" alt="Infos">
                 <span>Infos</span>
             </a>
-            <a href="explorer.html" class="dropdown-item">
-                <img src="./images/svg/search-svgrepo-com.svg" alt="Explorer">
-                <span>Explorer</span>
-            </a>
         </nav>
     </header>
+
     <main>
-        <p class="pinfo">Ce site a été créé dans un <strong class="stronginfo">cadre universitaire</strong> afin de
-            créer une alternative plus graphique,
-            plus accessible
-            que le site actuel de la recherche de master <a
-                href="https://monmaster.gouv.fr/">https://https://monmaster.gouv.fr/</a>
-            .
-        </p>
-        <br>
-        <p class="pinfo">
-            Nous avons mené plusieurs recherches puis <strong class="stronginfo">des entretiens, analysé la
-                concurrence</strong>. La plupart des entretiens
-            nous ont répété que les informations disponibles des masters sont trop denses, parfois mal organisées.
-            Grâce à toutes ces informations, nous avons imaginé une application web plus axée sur la <strong
-                class="stronginfo">visualisation
-                des données</strong>. Notre objectif est d’accompagner les étudiants à trouver le master qui correspond
-            à leur profil et leurs attentes. Grâce aux entretiens que nous avons menés, nous avons posé la question de
-            quel
-            graphique leur semble le plus approprié pour la visualisation des données. Pour que les graphiques restent
-            simples, faciles et clairs à lire. Que les utilisateurs aient des suggestions de formations pertinentes,
-            pour que la recherche soit plus <strong class="stronginfo">fluide, dynamique et beaucoup plus
-                compréhensible</strong>.
-        </p>
-        <br>
-        <p class="pinfo">
-            Pour concevoir ce projet,
-            nous avons défini une identité visuelle reposant sur le <strong class="stronginfo">bleu</strong> et le
-            blanc, couleurs synonymes de confiance et
-            de lisibilité. Nous avons organisé ce travail grâce à plusieurs outils collaboratifs, comme <strong
-                class="stronginfo">Padlet et le
-                Deck</strong>
-            que propose notre université. Nous nous sommes appuyés sur les deux jeux de données open source issus de
-            <a
-                href="https://www.data.gouv.fr/datasets/monmaster-2024-2025-voeux-de-poursuite-detudes-et-de-reorientation-en-master-et-reponses-des-etablissements">
-                data.gouv.fr
+        <main>
+            <!-- CARD UNIQUE CONTENANT TOUT -->
+            <div class="main-card">
+                <!-- Formation X en mobile -->
+                <div class="formation-header">
+                    <h1 class="formation-title">Chargement...</h1>
+                    <div class="filters-container" id="dynamicFilters">
+                        <!-- Les filtres seront générés dynamiquement ici -->
+                    </div>
+                </div>
+
+                <!-- Wrapper pour desktop -->
+                <div class="formation-wrapper">
+                    <!-- Texte + Image côte à côte -->
+                    <div class="formation-content">
+                        <p class="formation-description">
+                            Chargement des détails de la formation...
+                        </p>
+                    </div>
+                </div>
+                <div class="informations">
+                    <!-- Image toujours à droite -->
+                    <div class="formation-image"></div>
+                </div>
+                <div class="informations">
+                    <!-- Image toujours à droite -->
+                    <div class="formation-image"></div>
+                </div>
+        </main>
+
+        <!-- BOTTOM NAVIGATION FIXE (MOBILE UNIQUEMENT) -->
+        <nav class="bottom-nav">
+            <a href="accueil.html" class="nav-item">
+                <img src="./images/svg/home-svgrepo-com.svg" alt="Accueil">
+                <span>Accueil</span>
             </a>
-            ainsi qu’une <strong class="stronginfo">API REST</strong> donnée en ressource de notre projet. Tout au long
-            de ce projet, nous avons importé
-            attention à ce que notre
-            site reste accessible à tous. En conclusion, notre application a pour but d'accompagner les étudiants en fin
-            de licence dans le choix d'un master plus facilement et qui leur correspond. Nous voulons faire une
-            application <strong class="stronginfo">aérée, claire et accessible</strong> où ils pourront comparer et
-            visualiser les informations des offres
-            de masters. En rendant ces informations simplement accessibles, nous espérons <strong
-                class="stronginfo">pouvoir réduire le stress</strong> des
-            étudiants dans leurs recherches et dans la poursuite de leur parcours.
-        </p>
-    </main>
 
-    <!-- BOTTOM NAVIGATION FIXE (MOBILE UNIQUEMENT) -->
-    <nav class="bottom-nav">
-        <a href="accueil.html" class="nav-item">
-            <img src="./images/svg/home-svgrepo-com.svg" alt="Accueil">
-            <span>Accueil</span>
-        </a>
+            <a href="info.html" class="nav-item active">
+                <img src="./images/svg/info-svgrepo-com.svg" alt="Infos">
+                <span>Infos</span>
+            </a>
+        </nav>
 
-        <a href="info.html" class="nav-item active">
-            <img src="./images/svg/info-svgrepo-com.svg" alt="Infos">
-            <span>Infos</span>
-        </a>
-    </nav>
+        <script src="./script.js"></script>
+        <script type="module" src="./scripts/orchestrator.js"></script>
 </body>
 
 </html>
