@@ -1513,7 +1513,6 @@ main {
     font-size: 1rem;
   }
 }
-
 /* ==========================================
        SECTION CARTES INFORMATIVES (ACCUEIL)
        À ajouter à la fin de style.css
@@ -1535,42 +1534,7 @@ main {
   background-color: #d9d9d9;
   border-radius: 20px;
   padding: 2rem;
-  display: flex;
-  flex-direction: column;
-  gap: 1.5rem;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-}
-
-/* Image de la carte */
-.info-card-image {
-  width: 100%;
-  max-width: 400px;
-  aspect-ratio: 16/10;
-  background-color: white;
-  border: 2px solid #333;
-  border-radius: 12px;
-  position: relative;
-  overflow: hidden;
-  margin: 0 auto;
-}
-
-.info-card-image::before,
-.info-card-image::after {
-  content: '';
-  position: absolute;
-  background-color: #333;
-  width: 141%;
-  height: 2px;
-  left: 50%;
-  top: 50%;
-}
-
-.info-card-image::before {
-  transform: translate(-50%, -50%) rotate(45deg);
-}
-
-.info-card-image::after {
-  transform: translate(-50%, -50%) rotate(-45deg);
 }
 
 /* Contenu de la carte */
@@ -1598,10 +1562,6 @@ main {
     padding: 2.5rem;
   }
 
-  .info-card-image {
-    max-width: 500px;
-  }
-
   .info-card-text {
     font-size: 1rem;
   }
@@ -1617,34 +1577,7 @@ main {
   }
 
   .info-card {
-    flex-direction: row;
-    align-items: center;
-    padding: 3rem;
-    gap: 3rem;
-  }
-
-  /* Alternance gauche/droite pour les cartes */
-  .info-card:nth-child(odd) {
-    flex-direction: row;
-  }
-
-  .info-card:nth-child(even) {
-    flex-direction: row-reverse;
-  }
-
-  .info-card-image {
-    flex: 0 0 45%;
-    max-width: 450px;
-    margin: 0;
-  }
-
-  .info-card-content {
-    flex: 1;
-    text-align: left;
-  }
-
-  .info-card:nth-child(even) .info-card-content {
-    text-align: right;
+    padding: 3rem 4rem;
   }
 
   .info-card-text {
