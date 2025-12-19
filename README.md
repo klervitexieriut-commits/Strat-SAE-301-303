@@ -12,6 +12,44 @@ L’idée est d’également prendre en compte les enjeux d'accessibilité pour 
 
 Pour notre application, nous utilisons plusieurs languages qui sont : HTML, CSS, Javascript (pour la visualisation des données). Le Javascript permettra de générer nos visualisations, choisies à partir des précédents entretiens. Nos visualisations sont les suivantes : un modèle en camembert, un histogramme et une carte intéractive. Nous utiliserons le site https://echarts.apache.org pour leur design et leur interactivité. 
 
+### Arborescence et description des fichiers
+
+Le projet est organisé de la manière suivante :
+```
+.
+├── accueil.html
+├── explorer.html
+├── formation.html
+├── info.html
+├── README.md
+├── base-de-donnee/
+│   └── fr-esr-mon_master.json
+├── css/
+│   └── style.css
+├── images/
+│   └── svg/
+└── scripts/
+    ├── camembert.js
+    ├── carteinteractive.js
+    ├── explorer.js
+    ├── histogramme.js
+    ├── orchestrator.js
+    └── recupdedonne.js
+```
+
+-   **`accueil.html`**: La page d'accueil de l'application.
+-   **`explorer.html`**: La page principale pour l'exploration et la visualisation des données.
+-   **`formation.html`**: Une page détaillant les informations sur une formation spécifique.
+-   **`info.html`**: Une page d'information ("à propos").
+-   **`css/style.css`**: La feuille de style principale.
+-   **`scripts/`**: Contient tous les scripts JavaScript.
+    -   **`recupdedonne.js`**: Gère la récupération des données depuis le fichier JSON.
+    -   **`orchestrator.js`**: Coordonne les différents modules JavaScript.
+    -   **`camembert.js`**, **`histogramme.js`**, **`carteinteractive.js`**: Contiennent le code pour générer chaque visualisation.
+    -   **`explorer.js`**: Gère la logique de la page `explorer.html`.
+-   **`base-de-donnee/`**: Contient le jeu de données `fr-esr-mon_master.json`.
+-   **`images/`**: Contient les icônes SVG utilisées dans l'interface.
+
 ## 3. Guide de déploiement 
 
 Toutes les données sont récupérées via des appels HTTP GET vers les sources ouvertes (API ou fichiers JSON).
@@ -25,4 +63,5 @@ Pour lancer le prototype de l'application, suivez ce guide par étapes :
 #### 3. Lancer l'application en cliquant sur Live Server (clic droit : "Open via Live Server")
 #### 4. Accéder à l'application dans le navigateur de votre choix
 
-
+---
+*Ce projet a été réalisé par le Groupe 3: Houssein, Klervi, Victor, Mairwen, Océane*

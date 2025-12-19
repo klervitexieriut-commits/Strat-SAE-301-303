@@ -42,17 +42,26 @@ function initializeHomePageButtons() {
     }
 
     const heroImageAccueil = document.querySelector('.hero-image-accueil');
-    if (heroImageAccueil) {
-        window.addEventListener('scroll', () => {
-            const scrolled = window.pageYOffset;
-            heroImageAccueil.style.transform = `translateY(${scrolled * 0.3}px)`;
-        });
-    }
+    // if (heroImageAccueil) {
+    //     window.addEventListener('scroll', () => {
+    //         const scrolled = window.pageYOffset;
+    //         heroImageAccueil.style.transform = `translateY(${scrolled * 0.3}px)`;
+    //     });
+    // }
 }
 
-
+/*Carte Accueil*/ 
 
 document.addEventListener('DOMContentLoaded', () => {
     initializeMenu();
     initializeHomePageButtons();
 });
+
+const fs = require('fs');
+try {
+    const data = JSON.parse(fs.readFileSync('c:/Users/saidh/OneDrive/Documentos/GitHub/Strat-SAE-301-303/base-de-donnee/fr-esr-mon_master.json'));
+    const academies = [...new Set(data.map(d => d.acad_lib))].filter(Boolean).sort();
+    console.log(JSON.stringify(academies, null, 2));
+} catch (e) {
+    console.error(e);
+}

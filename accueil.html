@@ -28,8 +28,12 @@
                 <img src="./images/svg/home-svgrepo-com.svg" alt="Accueil">
                 <span>Accueil</span>
             </a>
+            <a href="./explorer.html" class="dropdown-item">
+                <img src="./images/svg/search-svgrepo-com.svg" alt="Infos">
+                <span>Explorer</span>
+            </a>
 
-            <a href="./info.html" class="dropdown-item">
+            <a href="./accueil.html#savoir" class="dropdown-item">
                 <img src="./images/svg/info-svgrepo-com.svg" alt="Infos">
                 <span>Infos</span>
             </a>
@@ -38,23 +42,73 @@
 
     <!-- MAIN CONTENT ACCUEIL -->
     <main class="main-accueil">
+        <!-- Section Hero -->
         <div class="container-accueil">
-            <div class="hero-image-accueil"></div>
+            <div class="hero-image-accueil">
+                <iframe id="carte-accueil"
+                    src="https://maps.google.com/maps?q=Universit%C3%A9s+et+Grandes+%C3%89coles+France&t=&z=6&ie=UTF8&iwloc=&output=embed"
+                    frameborder="0" scrolling="no" marginheight="0" marginwidth="0"
+                    style="width: 100%; height: 100%; border-radius: 8px;">
+                </iframe>
+            </div>
 
             <div class="title-section-accueil">
-                <h1 class="main-title-accueil">Master-Class</h1>
+                <h1 class="main-title-accueil">MASTERCLASS</h1>
             </div>
 
             <p class="description-accueil">
-                Bienvenue sur le site Master-Class, qui vous guidera pour dénicher le master que vous rechercher dans le
-                domaine de votre choix.
-            </p>
+                Ce site a été créé dans un cadre universitaire afin de proposer une alternative plus graphique, plus
+                intuitive et plus accessible que le site Mon Master. Après avoir mené des entretiens, analysé la
+                concurrence et étudié les usages des étudiants en recherche de formation, notre groupe a constaté que
+                les informations disponibles sur les masters sont souvent trop denses, parfois mal organisées, et
+                rarement pensées pour faciliter la comparaison. C'est dans ce contexte que nous avons imaginé une
+                application web fondée sur la visualisation de données. </p>
 
             <div class="button-group-accueil">
                 <a href="explorer.html"><button class="btn-accueil btn-primary-accueil">Explorer</button></a>
-                <a href="info.html"><button class="btn-accueil btn-secondary-accueil">En savoir plus</button></a>
+                <a href="./accueil.html#savoir"><button class="btn-accueil btn-secondary-accueil">En savoir
+                        plus</button></a>
             </div>
         </div>
+
+        <!-- Section Titre Logo -->
+        <section class="titre-logo-section">
+            <h2 class="titre-logo">MASTERCLASS</h2>
+        </section>
+
+        <!-- Section des cartes informatives -->
+        <section id="savoir" class="info-cards-section">
+            <article class="info-card">
+                <div class="info-card-image"></div>
+                <div class="info-card-content">
+                    <p class="info-card-text">
+                        Notre objectif est d'accompagner les étudiants en fin de licence dans une étape déterminante :
+                        trouver un master qui correspond réellement à leur profil et à leurs attentes.
+                        Grâce à des indicateurs visuels originaux, à des outils de comparaison clairs, à des graphiques
+                        simples et à des suggestions de formations pertinentes, nous cherchons à rendre cette recherche
+                        plus fluide, plus dynamique et beaucoup plus compréhensible.
+                        Au final, notre ambition est simple : réduire le stress et la charge d'information des étudiants
+                        grâce à une plateforme aérée, claire et efficace. En rendant les données sur les masters plus
+                        lisibles et plus comparables, nous espérons offrir un outil réellement utile pour guider les
+                        étudiants vers la formation qui leur correspond le mieux et les accompagner sereinement dans la
+                        poursuite de leur parcours. </p>
+                    </p>
+                </div>
+            </article>
+
+            <article class="info-card">
+                <div class="info-card-image"></div>
+                <div class="info-card-content">
+                    <p class="info-card-text">
+                        Pour concevoir ce projet, nous avons défini une identité visuelle reposant sur le bleu et le
+                        blanc, couleurs synonymes de confiance et de lisibilité. Nous avons structuré notre travail à
+                        l'aide d'outils collaboratifs comme Padlet et un tableau Kanban, et nous nous sommes appuyés sur
+                        deux jeux de données open source issus de data.gouv.fr ainsi qu'une API REST. Tout au long du
+                        développement, nous avons accordé une attention particulière à l'accessibilité afin de garantir
+                        une expérience inclusive pour tous. </p>
+                </div>
+            </article>
+        </section>
     </main>
 
     <!-- BOTTOM NAVIGATION FIXE (MOBILE UNIQUEMENT) -->
@@ -64,16 +118,16 @@
             <span>Accueil</span>
         </a>
 
-        <a href="info.html" class="nav-item">
+        <a href="./accueil.html#savoir" class="nav-item">
             <img src="./images/svg/info-svgrepo-com.svg" alt="Infos">
             <span>Infos</span>
         </a>
+
         <a href="explorer.html" class="nav-item">
             <img src="./images/svg/search-svgrepo-com.svg" alt="Explorer">
             <span>Explorer</span>
         </a>
     </nav>
-
 
 </body>
 
