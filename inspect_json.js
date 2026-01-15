@@ -5,11 +5,10 @@ let data = '';
 
 stream.on('data', (chunk) => {
   data += chunk;
-  // Try to find the end of the first object
+
   if (data.includes('}]') || data.includes('},')) {
     try {
-        // It's likely an array of objects. Let's try to parse the beginning.
-        // If it starts with [, we need to find the first closing brace.
+    
         const firstObjEnd = data.indexOf('}');
         if (firstObjEnd !== -1) {
             const firstObjStr = data.substring(data.indexOf('{'), firstObjEnd + 1);
@@ -19,7 +18,7 @@ stream.on('data', (chunk) => {
             process.exit(0);
         }
     } catch (e) {
-        // Continue reading if not enough data
+   
     }
   }
   // Safety break if too much data

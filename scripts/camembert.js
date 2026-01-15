@@ -12,42 +12,62 @@ export async function initCamembert(formationId) {
         }
 
         const myChart = echarts.init(chartDom);
-        const { nbCandidats, nbAdmis } = stats;
+        const f = stats.data;
+
+        const canPPH = parseInt(f.n_can_pp || 0) - parseInt(f.n_can_femme_pp || 0);
+        const canPPF = parseInt(f.n_can_femme_pp || 0);
+        const canPCH = parseInt(f.n_can_pc || 0) - parseInt(f.n_can_femme_pc || 0);
+        const canPCF = parseInt(f.n_can_femme_pc || 0);
 
         const chartData = [
-            { value: nbAdmis, name: 'Admis' },
-            { value: nbCandidats - nbAdmis, name: 'Non Admis' }
-        ];
-
-        const isMobile = window.innerWidth < 1024;
-        const radiusInner = isMobile ? 25 : 30;
-        const radiusOuter = isMobile ? 80 : 100;
+            { value: canPPH, name: 'Phase Principale (Hommes)' },
+            { value: canPPF, name: 'Phase Principale (Femmes)' },
+            { value: canPCH, name: 'Phase Complémentaire (Hommes)' },
+            { value: canPCF, name: 'Phase Complémentaire (Femmes)' }
+        ].filter(d => d.value > 0);
 
         const option = {
             title: {
-                text: 'Candidats vs Admis',
+                text: `Capacité : ${f.col || 'N/A'} places`,
+                subtext: `Dernier admis - Phase Principale: ${f.rang_dernier_appele_pp || 'N/A'} | Phase Complémentaire: ${f.rang_dernier_appele_pc || 'N/A'}`,
                 left: 'center',
                 top: 0,
-                textStyle: { fontSize: 14 }
+                textStyle: { fontSize: 16, fontWeight: 'bold' },
+                subtextStyle: { fontSize: 12, color: '#666' }
             },
             tooltip: {
                 trigger: 'item',
-                formatter: '{b} : {c} ({d}%)'
+                formatter: '{b} : {c} candidats ({d}%)'
             },
             legend: {
-                top: 'bottom'
+                top: 'bottom',
+                padding: [20, 0, 0, 0]
             },
             series: [
                 {
-                    name: 'Candidatures',
+                    name: 'Répartition des candidats',
                     type: 'pie',
-                    radius: [radiusInner, radiusOuter],
-                    center: ['50%', '50%'],
+                    radius: ['30%', '70%'],
+                    center: ['50%', '55%'],
+                    avoidLabelOverlap: true,
                     itemStyle: {
-                        borderRadius: 5
+                        borderRadius: 8,
+                        borderColor: '#fff',
+                        borderWidth: 2
+                    },
+                    label: {
+                        show: false,
+                        position: 'center'
+                    },
+                    emphasis: {
+                        label: {
+                            show: true,
+                            fontSize: 14,
+                            fontWeight: 'bold'
+                        }
                     },
                     data: chartData,
-                    color: ['#91CC75', '#EE6666']
+                    color: ['#5470C6', '#EE6666', '#73C0DE', '#FAC858']
                 }
             ]
         };

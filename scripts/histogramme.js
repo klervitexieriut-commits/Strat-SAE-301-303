@@ -1,9 +1,8 @@
-function calculateInsertionRate(formation) {
-    const candidatsTotal = parseInt(formation.n_can_pp || 0) + parseInt(formation.n_can_pc || 0);
-    const admisTotal = parseInt(formation.n_accept_pp || 0) + parseInt(formation.n_accept_pc || 0);
-    
-    if (candidatsTotal === 0) return 0;
-    return ((admisTotal / candidatsTotal) * 100).toFixed(1);
+function calculateRate(admitted, candidates) {
+    const can = parseInt(candidates || 0);
+    const acc = parseInt(admitted || 0);
+    if (can === 0) return 0;
+    return ((acc / can) * 100).toFixed(1);
 }
 
 export async function initHistogramme(formation) {
@@ -16,15 +15,19 @@ export async function initHistogramme(formation) {
     try {
         const myChart = echarts.init(chartDom);
         
-        const currentYear = new Date().getFullYear();
-        const years = [currentYear - 2, currentYear - 1, currentYear];
-        const insertionRates = years.map(() => {
-            return parseFloat(calculateInsertionRate(formation));
-        });
+        const ratePP = calculateRate(formation.n_accept_pp, formation.n_can_pp);
+        const ratePC = calculateRate(formation.n_accept_pc, formation.n_can_pc);
+        const rateTotal = calculateRate(
+            parseInt(formation.n_accept_pp || 0) + parseInt(formation.n_accept_pc || 0),
+            parseInt(formation.n_can_pp || 0) + parseInt(formation.n_can_pc || 0)
+        );
+
+        const categories = ['Phase Principale', 'Phase Complémentaire', 'Total (2024)'];
+        const insertionRates = [parseFloat(ratePP), parseFloat(ratePC), parseFloat(rateTotal)];
 
         const option = {
             title: {
-                text: 'Taux d\'insertion des 3 dernières années',
+                text: 'Détail des admissions 2024',
                 left: 'center',
                 textStyle: { fontSize: 14 }
             },
@@ -44,8 +47,9 @@ export async function initHistogramme(formation) {
             },
             xAxis: {
                 type: 'category',
-                data: years.map(y => y.toString()),
-                axisTick: { alignWithLabel: true }
+                data: categories,
+                axisTick: { alignWithLabel: true },
+                axisLabel: { interval: 0 }
             },
             yAxis: {
                 type: 'value',
