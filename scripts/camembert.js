@@ -40,15 +40,17 @@ export async function initCamembert(formationId) {
                 formatter: '{b} : {c} candidats ({d}%)'
             },
             legend: {
-                top: 'bottom',
-                padding: [20, 0, 0, 0]
+                orient: 'horizontal',
+                bottom: '0%',
+                left: 'center',
+                textStyle: { fontSize: 10 }
             },
             series: [
                 {
                     name: 'Répartition des candidats',
                     type: 'pie',
-                    radius: ['30%', '70%'],
-                    center: ['50%', '55%'],
+                    radius: ['35%', '65%'],
+                    center: ['50%', '48%'],
                     avoidLabelOverlap: true,
                     itemStyle: {
                         borderRadius: 8,

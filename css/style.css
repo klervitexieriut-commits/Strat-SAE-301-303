@@ -132,10 +132,11 @@ main {
 }
 
 .formation-title {
-  font-size: 1.3rem;
+  font-size: clamp(1.1rem, 4vw, 2rem);
   font-weight: 600;
   color: #0D79F2;
-  flex-shrink: 0;
+  word-wrap: break-word;
+  max-width: 100%;
 }
 
 .filters-container {
@@ -426,9 +427,6 @@ main {
     margin-bottom: 1.5rem;
   }
 
-  .formation-title {
-    font-size: 1.8rem;
-  }
 
   .formation-content {
     gap: 3rem;
@@ -601,10 +599,11 @@ main {
 }
 
 .formation-title {
-  font-size: 1.3rem;
+  font-size: clamp(1.1rem, 4vw, 2rem);
   font-weight: 600;
   color: #0D79F2;
-  flex-shrink: 0;
+  word-wrap: break-word;
+  max-width: 100%;
 }
 
 .filters-container {
@@ -870,9 +869,6 @@ main {
     margin-bottom: 1.5rem;
   }
 
-  .formation-title {
-    font-size: 1.8rem;
-  }
 
   .formation-content {
     gap: 3rem;
